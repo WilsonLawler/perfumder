@@ -1,0 +1,217 @@
+// Bootstrap 變數覆寫 - 黑金奢華主題
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+// 配色方案 - 黑金奢華風格
+$black-primary: #000000;
+$black-secondary: #0A0A0A;
+$black-tertiary: #1A1A1A;
+$gold-primary: #D4AF37;
+$gold-secondary: #FFD700;
+$gold-light: #F8E7B9;
+$gold-dark: #B8860B;
+$text-gold: #F5F5F5;
+$text-warm-white: #F5F5F5;
+$text-muted: rgba(245, 245, 245, 0.6);
+$border-gold: rgba(212, 175, 55, 0.3);
+$border-gold-strong: rgba(212, 175, 55, 0.6);
+
+// 覆寫 Bootstrap 變數
+$primary: $gold-primary;
+$secondary: $gold-secondary;
+$dark: $black-primary;
+$light: $black-tertiary;
+$body-bg: $black-primary;
+$body-color: $text-warm-white;
+$border-radius: 12px;
+$border-radius-lg: 16px;
+$border-radius-sm: 8px;
+
+// 字體
+$font-family-base: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+$font-family-serif: 'Playfair Display', 'Cormorant Garamond', 'Georgia', serif;
+
+// 間距
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4,
+);
+
+// 陰影 - 黑金奢華風格
+$box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+$box-shadow-sm: 0 0 10px rgba(212, 175, 55, 0.1);
+$box-shadow-lg: 0 0 30px rgba(212, 175, 55, 0.2);
+$box-shadow-gold-glow: 0 0 12px rgba(255, 215, 0, 0.5);
+$box-shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+// 引入 Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// Google Fonts 引入（在 HTML 中需要加入）
+// @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+// 自訂樣式類別 - 黑金奢華風格
+.luxury-card {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-card;
+  transition: all 0.3s ease;
+  border: 1px solid $border-gold;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $gold-primary, transparent);
+    opacity: 0.5;
+  }
+
+  &:hover {
+    box-shadow: $box-shadow-lg, $box-shadow-gold-glow;
+    transform: translateY(-4px);
+    border-color: $border-gold-strong;
+  }
+}
+
+.luxury-btn {
+  border-radius: $border-radius;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  transition: all 0.3s ease;
+  font-size: 0.9375rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: $font-family-base;
+
+  &.btn-primary {
+    background: $black-primary;
+    color: $gold-primary;
+    border: 1.5px solid $gold-primary;
+    box-shadow: $box-shadow-sm;
+
+    &:hover {
+      background: $black-secondary;
+      color: $gold-secondary;
+      border-color: $gold-secondary;
+      box-shadow: $box-shadow-gold-glow;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &.btn-outline-primary {
+    border: 1.5px solid $gold-primary;
+    color: $gold-primary;
+    background: transparent;
+
+    &:hover {
+      background: rgba(212, 175, 55, 0.1);
+      border-color: $gold-secondary;
+      color: $gold-secondary;
+      box-shadow: $box-shadow-gold-glow;
+      transform: translateY(-2px);
+    }
+  }
+
+  &.btn-outline-secondary {
+    border: 1px solid $border-gold;
+    color: $text-warm-white;
+    background: transparent;
+
+    &:hover {
+      background: rgba(212, 175, 55, 0.1);
+      border-color: $gold-primary;
+      color: $gold-primary;
+    }
+  }
+}
+
+.luxury-input {
+  border-radius: $border-radius;
+  border: 1px solid $border-gold;
+  padding: 0.875rem 1.25rem;
+  transition: all 0.3s ease;
+  background: rgba(10, 10, 10, 0.6);
+  color: $text-warm-white;
+  font-size: 0.9375rem;
+
+  &:focus {
+    border-color: $gold-primary;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2), $box-shadow-sm;
+    background: rgba(10, 10, 10, 0.8);
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $text-muted;
+  }
+}
+
+.luxury-image {
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  border: 1px solid $border-gold;
+}
+
+.luxury-text-gold {
+  color: $gold-primary;
+}
+
+.luxury-text-primary {
+  color: $gold-primary;
+}
+
+.luxury-bg-dark {
+  background: $black-primary;
+  color: $text-warm-white;
+}
+
+.luxury-bg-cream {
+  background-color: $black-secondary;
+}
+
+.luxury-bg-white {
+  background-color: $black-tertiary;
+}
+
+// 金色分隔線
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, $gold-primary, transparent);
+  opacity: 0.3;
+  margin: 2rem 0;
+}
+
+// 玻璃質感面板
+.glass-panel {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid $border-gold;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-card;
+}
+
+// 背景圖片樣式
+body {
+  background: $black-primary;
+  min-height: 100vh;
+}
+
